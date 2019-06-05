@@ -39,3 +39,17 @@ let people=[new person('David','Programmer'), new person('eugene','auditor'),new
 for(let persons in people){
   console.log(people[persons]);
 }
+
+
+people[2].boss = 'David';
+people[1].boss = 'David';
+
+
+people.forEach(person => {
+  if (person.hasOwnProperty('boss')) {
+    console.log(`${person.name} reports to ${person.boss}`)
+  }
+  else {
+    console.log(`${person.name} doesn't report to anybody`)
+  }
+});
