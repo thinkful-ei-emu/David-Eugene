@@ -81,3 +81,20 @@ function decodeWords(string){
   return result;
 }
 console.log(decodeWords('craft block argon meter bells brown croon droop'));
+
+///
+
+function createCharacter(name, nickname, race, origin, attack, defense) {
+  return {
+    name: name,
+    nickname: nickname,
+    race: race,
+    origin:origin,
+    attack: attack,
+    defense: defense,
+    describe: function () {
+      console.log(`${name} is a ${race} from ${origin}.`);
+    },
+    evaluateFight: 
+  };
+}
