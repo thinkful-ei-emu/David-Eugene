@@ -98,6 +98,20 @@ function createCharacter(name, nickname, race, origin, attack, defense) {
     describe: function () {
       console.log(`${name} is a ${race} from ${origin}.`);
     },
-    evaluateFight: 
+    evaluateFight: function (enemy){
+      return `Your opponent takes ${this.attack - enemy.defense} damage and you receive ${this.defense - enemy.attack} damage.`;
+    }
   };
 }
+
+const characters = [
+  createCharacter('Gandalf the White', 'gandalf', 'Wizard', 'Middle Earth', 10, 6),
+  createCharacter('Bilbo Baggins', 'bilbo', 'Hobbit', 'The Shire', 2, 1),
+  createCharacter('Frodo Baggins', 'frodo', 'Hobbit', 'The Shire', 3, 2),
+  createCharacter('Aragorn son of Arathorn', 'aragorn', 'Man', 'Dunnedain', 6, 8),
+  createCharacter('Legolas', 'legolas', 'Elf', 'Woodland Realm', 8, 5)
+];
+
+characters.push(createCharacter('Arwen Undomiel', 'arwen', 'Half-Elf', 'Rivendell', 100, 40));
+
+console.log(characters[characters.find('aragorn')]);//.describe());
