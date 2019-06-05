@@ -53,3 +53,31 @@ people.forEach(person => {
     console.log(`${person.name} doesn't report to anybody`)
   }
 });
+//
+/*First letter	Character number
+a	2
+b	3
+c	4
+d	5*/
+//'craft block argon meter bells brown croon droop'.
+
+const cipher = {
+  a:2,
+  b:3,
+  c:4,
+  d:5
+};
+function decode(word, cipher){
+  if(cipher.hasOwnProperty(word[0])){
+    return word[cipher[word[0]]-1];
+  }else{
+    return ' ';
+  }
+
+}
+function decodeWords(string){
+  let result = '';
+  result +=string.split(' ').forEach(word=>decode(word, cipher));
+  return result;
+}
+console.log(decodeWords('craft block argon meter bells brown croon droop'));
