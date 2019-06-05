@@ -44,3 +44,17 @@ function enrollInSummerSchool(students) {
 }
 
 console.log(enrollInSummerSchool(studentInfo));
+
+const data = [{id: 1, foo: 'bar'}, {id: 2, foo: 'bizz'}];
+function findById(data, idnum){
+
+  for(let obj in data){
+    if(data[obj].id === idnum){
+      return data[obj];
+    }
+  }
+ 
+
+}
+
+console.log(findById(data, 2)); // should return {id: 2, foo: 'bizz'}
