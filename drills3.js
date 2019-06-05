@@ -87,7 +87,7 @@ console.log(decodeWords('craft block argon meter bells brown croon droop'));
 
 ///
 
-function createCharacter(name, nickname, race, origin, attack, defense) {
+function createCharacter(name, nickname, race, origin, attack, defense, weapon = 'nothing') {
   return {
     name: name,
     nickname: nickname,
@@ -95,8 +95,9 @@ function createCharacter(name, nickname, race, origin, attack, defense) {
     origin:origin,
     attack: attack,
     defense: defense,
+    weapon: weapon,
     describe: function () {
-      console.log(`${name} is a ${race} from ${origin}.`);
+      console.log(`${name} is a ${race} from ${origin} who uses a ${weapon}.`);
     },
     evaluateFight: function (enemy){
       return `Your opponent takes ${this.attack - enemy.defense} damage and you receive ${this.defense - enemy.attack} damage.`;
@@ -105,7 +106,7 @@ function createCharacter(name, nickname, race, origin, attack, defense) {
 }
 
 const characters = [
-  createCharacter('Gandalf the White', 'gandalf', 'Wizard', 'Middle Earth', 10, 6),
+  createCharacter('Gandalf the White', 'gandalf', 'Wizard', 'Middle Earth', 10, 6, 'staff'),
   createCharacter('Bilbo Baggins', 'bilbo', 'Hobbit', 'The Shire', 2, 1),
   createCharacter('Frodo Baggins', 'frodo', 'Hobbit', 'The Shire', 3, 2),
   createCharacter('Aragorn son of Arathorn', 'aragorn', 'Man', 'Dunnedain', 6, 8),
@@ -114,4 +115,14 @@ const characters = [
 
 characters.push(createCharacter('Arwen Undomiel', 'arwen', 'Half-Elf', 'Rivendell', 100, 40));
 
-console.log(characters[characters.find('aragorn')]);//.describe());
+console.log(characters.find(function (char){ 
+  return char.nickname === 'aragorn';
+}).describe());
+
+console.log(characters.filter(function(char){
+  return char.race === 'Hobbit';
+}));
+
+console.log(characters.filter(function(char){
+  return char.attack > 5;
+}));
