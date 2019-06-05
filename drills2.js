@@ -89,9 +89,6 @@ function validateKeys(object, expectedKeys) {
     if(!Object.keys(object).find(key => key === expectedKeys[i])){
       return false;
     }
-    // if(Object.keys(object)[i] !== expectedKeys[i]){
-    //   return false;
-    // }
   }
 
   return true;
