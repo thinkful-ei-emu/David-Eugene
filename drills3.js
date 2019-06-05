@@ -75,9 +75,12 @@ function decode(word, cipher){
   }
 
 }
-function decodeWords(string){
+function decodeWords(password){
   let result = '';
-  result +=string.split(' ').forEach(word=>decode(word, cipher));
+  let words = password.split(' ');
+  words.forEach(word=>{
+    result += decode(word, cipher);
+  });
   return result;
 }
 console.log(decodeWords('craft block argon meter bells brown croon droop'));
